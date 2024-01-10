@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">News Feed</string>
+    <string name="error_no_internet">No Internet Connection</string>
+    <string name="api_key">e76a522ca33b4a18bbfe54f63f7c3c20</string>
+</resources>

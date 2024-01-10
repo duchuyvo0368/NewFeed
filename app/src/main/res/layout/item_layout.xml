@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:layout_width="@dimen/dim_0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dim_8dp"
+        app:cardElevation="@dimen/dim_6dp"
+        app:cardCornerRadius="@dimen/dim_6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_icon"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_160dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="@dimen/dim_8dp"
+                android:paddingStart="@dimen/dim_12dp"
+                android:paddingEnd="@dimen/dim_12dp"
+                tools:text="ABC NEWS"
+                android:layout_below="@+id/iv_icon"
+                android:textColor="@android:color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:textSize="@dimen/dim_12sp"
+                android:textStyle="normal"
+                android:paddingTop="@dimen/dim_8dp"
+                android:paddingStart="@dimen/dim_12dp"
+                android:paddingEnd="@dimen/dim_12dp"
+                tools:text="Ajay"
+                android:layout_below="@+id/tv_title"
+                android:textColor="@android:color/darker_gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tv_category"
+                android:textSize="@dimen/dim_12sp"
+                android:paddingStart="@dimen/dim_12dp"
+                android:paddingEnd="@dimen/dim_12dp"
+                android:paddingBottom="@dimen/dim_12dp"
+                tools:text="Ajay"
+                android:layout_below="@+id/tv_description"
+                android:textColor="@android:color/darker_gray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,99 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.example.newsfeed"
+        minSdkVersion 22
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            /**
+             * Just adding keys directly here,
+             * Otherwise can use gradle filesystem to hide keys
+             * */
+
+            keyAlias 'NewsFeedKey'
+            keyPassword 'newsfeed321'
+            storeFile file("keystore/release.jks")
+            storePassword 'newsfeed123'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation "junit:junit:$junit_core_version"
+    androidTestImplementation "androidx.test.ext:junit:$junit_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
+
+    // UI
+    implementation "androidx.appcompat:appcompat:$app_compact_version"
+    //noinspection GradleDependency
+    implementation "androidx.core:core-ktx:$android_core_version"
+    //noinspection GradleDependency
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    //noinspection GradleDependency
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+    //noinspection GradleDependency
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    implementation "androidx.cardview:cardview:$cardvew_version"
+    implementation "com.android.support:design:$design_version"
+
+    //Co-routines
+    //noinspection GradleDependency
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
+
+    //LifeCycle
+    //noinspection GradleDependency
+    implementation "androidx.lifecycle:lifecycle-common:$lifecycle_common_version"
+    //noinspection GradleDependency
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_runtime_version"
+    implementation "android.arch.lifecycle:extensions:$lifecycle_extension_version"
+    //noinspection GradleDependency
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_livedata_version"
+
+    //Retrofit
+    //noinspection GradleDependency
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    //noinspection GradleDependency
+    implementation "com.google.code.gson:gson:$gson_version"
+    //noinspection GradleDependency
+    implementation "com.squareup.retrofit2:converter-gson:$gson_convertor_version"
+    //noinspection GradleDependency
+    implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:28.0.0'
+}
